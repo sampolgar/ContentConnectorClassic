@@ -1,0 +1,22 @@
+app.post('/images', (req, res) => {
+    let getImageData = new Promise(function(response, rejected){
+        // console.log('here'+JSON.stringify(req.body))
+        response(testPost())
+    })
+
+    getImageData
+    .then(function(success){
+        res.send('Hello World!');
+    }, function(error){
+        console.log(error)
+    })
+})
+
+function testPost(){
+    console.log('jaldkfjklajdflksjalksdf')
+    const incomingImg = {
+        "id": 5,
+        "name": "image5",
+        "link": "https:1231234.com"
+    };
+}
