@@ -1,3 +1,7 @@
 node_modules/*
-gitignore
+.gitignore
 package-lock.json
+index_old.js
+index.html
+package.json
+test.html
