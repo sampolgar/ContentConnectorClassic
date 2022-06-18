@@ -3,31 +3,31 @@
     {
       "id": "100",
       "name": "All Images",
-      "navigationPath": null,
+      "navigationPath": 100,
       "parentFolderId": null
     },
     {
       "id": "101",
       "name": "Food",
-      "navigationPath": "100",
+      "navigationPath": "100/101",
+      "parentFolderId": "100"
+    },
+    {
+      "id": "102",
+      "name": "Holidays",
+      "navigationPath": "100/102",
       "parentFolderId": "100"
     },
     {
       "id": "103",
-      "name": "Holidays",
-      "navigationPath": "100",
-      "parentFolderId": "100"
-    },
-    {
-      "id": "104",
       "name": "Wine",
-      "navigationPath": "100",
+      "navigationPath": "100/103",
       "parentFolderId": "100"
     },
     {
-        "id": "105",
+        "id": "104",
         "name": "Fine Wine",
-        "navigationPath": "100/103",
+        "navigationPath": "100/103/104",
         "parentFolderId": "103"
       }
   ],
@@ -39,7 +39,7 @@
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food1.jpg",
-      "imagename": "Ocean Restaurant",
+      "imagename": "ocean restaurant",
       "tags": "restaurant, ocean",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food1.jpg"
     },
@@ -50,7 +50,7 @@
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food2.jpg",
-      "imagename": "Vegetable Plate Alain Passard",
+      "imagename": "vegetable plate alain passard",
       "tags": "vegetables, french restaurant, famous chef",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food2.jpg"
     },
@@ -61,7 +61,7 @@
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food3.jpg",
-      "imagename": "Spanish Restaurant",
+      "imagename": "spanish restaurant",
       "tags": "spain, spanish restaurant",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food3.jpg"
     },
@@ -72,7 +72,7 @@
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food4.jpg",
-      "imagename": "Rustic Restaurant",
+      "imagename": "rustic restaurant",
       "tags": "rustic restaurant",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food4.jpg"
     },
@@ -83,7 +83,7 @@
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food5.jpg",
-      "imagename": "Fine Food",
+      "imagename": "fine food",
       "tags": "fine food, fine restaurant, michelin",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food5.jpg"
     },
@@ -94,7 +94,7 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday1.png",
-      "imagename": "Ocean and Beach",
+      "imagename": "ocean and beach",
       "tags": "ocean getaway",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday1.png"
     },
@@ -105,7 +105,7 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday2.png",
-      "imagename": "Beach",
+      "imagename": "beach",
       "tags": "beach resort",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday2.png"
     },
@@ -116,7 +116,7 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday3.png",
-      "imagename": "Resort",
+      "imagename": "resort",
       "tags": "resort, australia, beach",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday3.png"
     },
@@ -127,7 +127,7 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday4.png",
-      "imagename": "Hammock",
+      "imagename": "hammock",
       "tags": "hammock, beach",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday4.png"
     },
@@ -138,7 +138,7 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday5.png",
-      "imagename": "Jungle",
+      "imagename": "jungle",
       "tags": "jungle",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday5.png"
     },
@@ -149,7 +149,7 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine1.png",
-      "imagename": "Masin Dieu Bourgogne",
+      "imagename": "maisin dieu bourgogne",
       "tags": "burgundy wine, wine",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine1.png"
     },
@@ -160,29 +160,29 @@
       "width": 100,
       "mimeType": "image/png",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine2.png",
-      "imagename": "Burgundy Chateaux",
+      "imagename": "burgundy chateaux",
       "tags": "chateaux, accomodation",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine2.png"
     },
     {
-      "folderId": "103",
+      "folderId": "105",
       "imageid": "1013",
       "height": 100,
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine3.jpg",
-      "imagename": "Red Burgundy Bottle 1",
+      "imagename": "red burgundy bottle 1",
       "tags": "drink",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine3.jpg"
     },
     {
-      "folderId": "103",
+      "folderId": "105",
       "imageid": "1014",
       "height": 100,
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine4.jpg",
-      "imagename": "Red Burgundy Bottle 2",
+      "imagename": "red burgundy bottle 2",
       "tags": "drink",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine4.jpg"
     },
@@ -193,7 +193,7 @@
       "width": 100,
       "mimeType": "image/jpeg",
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine5.jpg",
-      "imagename": "French Oak",
+      "imagename": "french oak",
       "tags": "barrels",
       "downloadUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine5.jpg"
     }
