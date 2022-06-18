@@ -1,5 +1,6 @@
 const express = require('express');
-const images = require('./images.json')
+const content = require('./content.json')
+const jmespath = require('jmespath');
 const fs = require('fs')
 
 const app = express();
@@ -8,7 +9,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.sendStatus(200);
 });
 
 app.post('/oauth2/token' , (req, res) => {
@@ -21,15 +22,28 @@ app.post('/oauth2/token' , (req, res) => {
 });
 
 
+app.get('/folders', (req, res) => {
+    //filter the content.json file for folders
+    try {
+        const folderSearch = jmespath.search(content, 'folders')
+        res.send(folderSearch)
+    } catch (error) {
+        console.log("folder search error")
+        res.sendStatus(500)
+    }
+});
+
+
 app.get('/images', (req, res) => {
     res.json(images)
 });
 
-app.get('/folders', (req, res) => {
-    const folders = []
-    res.send(folders)
-});
+
 
 app.listen(PORT, () => {
     console.log(`Express server currently running on port ${PORT}`)
 });
+
+
+
+

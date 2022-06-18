@@ -1,6 +1,0 @@
-// OAuth
-{
-    grant_type: "client_credentials",
-    client_id: "632b27ff-1698-45ce-abb1-5a1542275a7",
-    client_secret: "632b27ff-1585486b1-5a0545832a7577"
-}
