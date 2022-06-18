@@ -24,21 +24,29 @@ app.post("/oauth2/token", (req, res) => {
 
 //folder requests
 app.get("/folders", (req, res) => {
+
+    for (const key in req.query) {
+        console.log("hello"+key, req.query[key])
+      }
+
   //search query - get the navigation path if it's available
   const navigationPath = req.query.navigationPath;
 
   //if navigationPath is available, return the folders within the path
-  if (navigationPath !== undefined) {
+  if (navigationPath && navigationPath !== undefined) {
     try {
       const jmespathExpression = `folders[?navigationPath=='${navigationPath}']`;
       const folderSearch = jmespath.search(content, jmespathExpression);
+      console.log("sending back folder search: ", folderSearch);
       res.send(folderSearch);
+
     } catch (error) {
       console.log("folder search with navigationpath error");
       res.sendStatus(500);
     }
   } else {
     //filter the content.json file for all folders
+    console.log("here in else")
     try {
       const folderSearch = jmespath.search(content, "folders");
       res.send(folderSearch);
@@ -51,7 +59,7 @@ app.get("/folders", (req, res) => {
 
 /*
 Example search queries to support
-1. images?navigationPath=&pageNumber=1                      get all images in the root folder - this is the default query Tempalfy opens with
+1. images?navigationPath=&pageNumber=1                      get all images in the root folder - this is the default query Tempalfy opens with. If no folders, this should return all images. If folders, don't return images.
 2. images?navigationPath=100&pageNumber=1                   get images from folder 100
 3. images?navigationPath=100%2F103&pageNumber=1             this is the navigation path for the folder with id 100/103
 4. images?navigationPath=&searchQuery=flower&pageNumber=1   this is the search query for a flower
@@ -59,16 +67,16 @@ Example search queries to support
 
 //image requests
 app.get("/images", (req, res) => {
-  console.log("made it here");
+  console.log("requested images with " + req.query);
+
+  for (const key in req.query) {
+    console.log(key, req.query[key])
+  }
 
   //support search queries
   const navigationPath = req.query.navigationPath; //which folder to search
   const imageSearchQuery = req.query.searchQuery; //what to search for
   const pageNumber = req.query.pageNumber; //support pagination
-
-  console.log(navigationPath + "1");
-  console.log(imageSearchQuery + "2");
-  console.log(pageNumber);
 
   if (!navigationPath && imageSearchQuery === undefined) {
     //1. images?navigationPath=&pageNumber=1
