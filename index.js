@@ -24,33 +24,36 @@ app.post("/oauth2/token", (req, res) => {
 
 //folder requests
 app.get("/folders", (req, res) => {
-
-    for (const key in req.query) {
-        console.log("hello"+key, req.query[key])
-      }
-
-  //search query - get the navigation path if it's available. If it ends with a '/', remove it.
-  let navigationPath = req.query.navigationPath;
-  if ( navigationPath.endsWith("/")) {
-    navigationPath = navigationPath.slice(0, -1);
+  for (const key in req.query) {
+    console.log("hello" + key, req.query[key]);
   }
+
+  //search query - get the navigation path if it's available
+    let navigationPath = req.query.navigationPath;
 
   //if navigationPath is available, return the folders within the path
   if (navigationPath && navigationPath !== undefined) {
-    try {
-      const jmespathExpression = `folders[?navigationPath=='${navigationPath}']`;
-      const folderSearch = jmespath.search(content, jmespathExpression);
-      console.log("sending back folder search: ", folderSearch);
-      res.send(folderSearch);
+    if (navigationPath.endsWith("/")) {
+        navigationPath = navigationPath.slice(0, -1);
+      }
 
+    try {
+        //get the folders with the navigation path - I don't think this is necessary
+        const emptyFolders = []
+        res.send(emptyFolders)
+    //   const jmespathExpression = `folders[?navigationPath=='${navigationPath}']`;
+    //   const folderSearch = jmespath.search(content, jmespathExpression);
+    //   console.log("sending back folder search: ", folderSearch);
+    //   res.send(folderSearch);
     } catch (error) {
       console.log("folder search with navigationpath error");
       res.sendStatus(500);
     }
   } else {
     //filter the content.json file for all folders
-    console.log("here in else")
+    console.log("here in else");
     try {
+      const jmespathExpression = `folders`;
       const folderSearch = jmespath.search(content, "folders");
       res.send(folderSearch);
     } catch (error) {
@@ -60,6 +63,9 @@ app.get("/folders", (req, res) => {
   }
 });
 
+
+//image requests
+
 /*
 Example search queries to support
 1. images?navigationPath=&pageNumber=1                      get all images in the root folder - this is the default query Tempalfy opens with. If no folders, this should return all images. If folders, don't return images.
@@ -68,28 +74,23 @@ Example search queries to support
 4. images?navigationPath=&searchQuery=flower&pageNumber=1   this is the search query for a flower
 */
 
-//image requests
 app.get("/images", (req, res) => {
-  console.log("requested images with " + req.query);
-
-  for (const key in req.query) {
-    console.log(key, req.query[key])
-  }
-
   //support search queries
   const imageSearchQuery = req.query.searchQuery; //what to search for
   const pageNumber = req.query.pageNumber; //support pagination
-
   let navigationPath = req.query.navigationPath; //which folder to search
-    if ( navigationPath.endsWith("/")) {
-      navigationPath = navigationPath.slice(0, -1);
-    }
+  if (navigationPath.endsWith("/")) {
+    navigationPath = navigationPath.slice(0, -1);
+  }
 
   if (!navigationPath && imageSearchQuery === undefined) {
+    console.log("hello here in images");
     //1. images?navigationPath=&pageNumber=1
+    //return all images except if folders are present. If folders, return folders.
     try {
-      const imageSearch = jmespath.search(content, "images");
-      res.send(imageSearch);
+    //   const imageSearch = jmespath.search(content, "images
+      const imageArry = []
+      res.send(imageArry);
     } catch (error) {
       console.log(error + " 1st image search error");
       res.sendStatus(500);
