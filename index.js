@@ -11,48 +11,24 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
+app.post('/oauth2/token' , (req, res) => {
+    const tokenResponse = { 
+        access_token: "fake_token",
+        expires_in: "3600",
+        token_type: "Bearer" 
+    }
+    res.send(tokenResponse);
+});
+
+
 app.get('/images', (req, res) => {
     res.json(images)
 });
 
-app.get('/images/:id', (req, res) => {
-    const imgId = Number(req.params.id);
-    const getImg = images.find((img) => img.id === imgId);
-
-    if(!getImg) {
-        res.status(500).send('img not found.')
-    } else {
-        res.json(getImg)
-    }
+app.get('/folders', (req, res) => {
+    const folders = []
+    res.send(folders)
 });
-
-app.post('/images', (req, res) => {
-    let getImageData = new Promise(function(response, rejected){
-        console.log('here'+JSON.stringify(req.body))
-        response(testPost())
-    })
-
-    getImageData
-    .then(function(success){
-        res.send('Hello: '+JSON.stringify(req.body));
-    }, function(error){
-        console.log(error)
-    })
-})
-
-function testPost(){
-    console.log('jaldkfjklajdflksjalksdf')
-    const incomingImg = {
-        "id": 5,
-        "name": "image5",
-        "link": "https:1231234.com"
-    };
-}
-
-
-app.post('/oauth2/token/', (req, res) => {
-    res.send('Hello: '+JSON.stringify(req.body));
-})
 
 app.listen(PORT, () => {
     console.log(`Express server currently running on port ${PORT}`)
