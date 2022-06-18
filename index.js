@@ -29,8 +29,11 @@ app.get("/folders", (req, res) => {
         console.log("hello"+key, req.query[key])
       }
 
-  //search query - get the navigation path if it's available
-  const navigationPath = req.query.navigationPath;
+  //search query - get the navigation path if it's available. If it ends with a '/', remove it.
+  let navigationPath = req.query.navigationPath;
+  if ( navigationPath.endsWith("/")) {
+    navigationPath = navigationPath.slice(0, -1);
+  }
 
   //if navigationPath is available, return the folders within the path
   if (navigationPath && navigationPath !== undefined) {
@@ -74,9 +77,13 @@ app.get("/images", (req, res) => {
   }
 
   //support search queries
-  const navigationPath = req.query.navigationPath; //which folder to search
   const imageSearchQuery = req.query.searchQuery; //what to search for
   const pageNumber = req.query.pageNumber; //support pagination
+
+  let navigationPath = req.query.navigationPath; //which folder to search
+    if ( navigationPath.endsWith("/")) {
+      navigationPath = navigationPath.slice(0, -1);
+    }
 
   if (!navigationPath && imageSearchQuery === undefined) {
     //1. images?navigationPath=&pageNumber=1
@@ -109,6 +116,7 @@ app.get("/images", (req, res) => {
         const folderJmesPathExpression = `folders[?navigationPath=='${navigationPath}']`;
         const folderSearch = jmespath.search(content, folderJmesPathExpression);
         const folderId = folderSearch[0].id;
+        console.log("folderId: ", folderId);
 
         //get the images from this folder
         const imageJmesPathExpression = `images[?folderId=='${folderId}']`;
@@ -127,7 +135,7 @@ app.get("/images", (req, res) => {
       const imageSearch = jmespath.search(content, jmespathExpression);
       res.send(imageSearch);
     } catch (error) {
-      console.log(error + " 2nd image search error");
+      console.log(error + " 3rd image search error");
       res.sendStatus(500);
     }
   } else {
