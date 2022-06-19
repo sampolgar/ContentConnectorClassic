@@ -5,7 +5,6 @@ const fs = require("fs");
 
 const app = express();
 const PORT = 3000;
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -49,18 +48,11 @@ app.get("/folders", (req, res) => {
       res.sendStatus(500);
     }
   } else {
-    //filter the content.json file for all folders
-    console.log("here in else");
+    //display the root folder
     try {
-
     const jmespathExpression = `min_by(folders, &id)`
-    const folderSearch = jmespath.search(content, jmespathExpression);
-    const arrayResult = [];
-    arrayResult.push(folderSearch);
-    res.send(arrayResult);
-    //   const jmespathExpression = `folders`;
-    //   const folderSearch = jmespath.search(content, "folders");
-    //   res.send(folderSearch);
+    const folderSearch = [jmespath.search(content, jmespathExpression)];
+    res.send(folderSearch);
     } catch (error) {
       console.log(error + " folder search error");
       res.sendStatus(500);
@@ -81,19 +73,20 @@ Example search queries to support
 
 app.get("/images", (req, res) => {
   //support search queries
-  const imageSearchQuery = req.query.searchQuery; //what to search for
-  const pageNumber = req.query.pageNumber; //support pagination
-  let navigationPath = req.query.navigationPath; //which folder to search
+  const imageSearchQuery = req.query.searchQuery;   //what to search for
+  const pageNumber = req.query.pageNumber;          //support pagination
+  let navigationPath = req.query.navigationPath;    //which folder to search
+
     if (navigationPath.endsWith("/")) {
         navigationPath = navigationPath.slice(0, -1);
     }
 
+    //1. images?navigationPath=&pageNumber=1
   if (!navigationPath && imageSearchQuery === undefined) {
     console.log("hello here in images");
-    //1. images?navigationPath=&pageNumber=1
+    
     //return all images except if folders are present. If folders, return folders.
     try {
-    //   const imageSearch = jmespath.search(content, "images
       const imageArry = []
       res.send(imageArry);
     } catch (error) {
@@ -103,7 +96,6 @@ app.get("/images", (req, res) => {
     
   } else if (navigationPath && navigationPath !== undefined) {
     //2. images?navigationPath=100&pageNumber=1 find all images in the navigation path
-    console.log("here on 91");
 
     if (!navigationPath.includes("/")) {
       try {
@@ -149,6 +141,21 @@ app.get("/images", (req, res) => {
     console.log(error + " end of else if statement. Need to catch this");
     res.sendStatus(500);
   }
+});
+
+app.get("/images/:imgid", (req, res) => {
+    const imageId = req.params.imgid
+    try {
+        const jmespathExpression = `images[?id=='${imageId}'].previewUrl | [0]`;
+        const imageDownloadSearch = jmespath.search(content, jmespathExpression);
+        downloadObj = {
+            "downloadUrl": imageDownloadSearch
+        }
+        res.send(downloadObj);
+    }
+    catch {
+        res.sendStatus(500);
+    }
 });
 
 app.listen(PORT, () => {
