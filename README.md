@@ -31,3 +31,10 @@ The 4 routes required are detailed in the article [here](https://support.templaf
 
 ## Links
 - https://support.templafy.com/hc/en-us/articles/4409277248273-How-to-build-a-Classic-Custom-Content-Connector-API- 
+
+
+## Description
+- Each page load from within Templafy will query both folders and images
+- The custom connector needs to support a navigationPath query parameter to return a list of folders and images at a given path
+- E.g. folders?navigationPath=100/101 will return the folders at the path 100/101 or the subfolders of folder 101
+- images?navigationPath=100/101 will return the images at the path 100/101 or images for folder 101

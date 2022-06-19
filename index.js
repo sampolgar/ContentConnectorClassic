@@ -63,14 +63,6 @@ app.get("/folders", (req, res) => {
 
 //image requests
 
-/*
-Example search queries to support
-1. images?navigationPath=&pageNumber=1                      get all images in the root folder - this is the default query Tempalfy opens with. If no folders, this should return all images. If folders, don't return images.
-2. images?navigationPath=100&pageNumber=1                   get images from folder 100
-3. images?navigationPath=100%2F103&pageNumber=1             this is the navigation path for the folder with id 100/103
-4. images?navigationPath=&searchQuery=flower&pageNumber=1   this is the search query for a flower
-*/
-
 app.get("/images", (req, res) => {
   //support search queries
   const imageSearchQuery = req.query.searchQuery;   //what to search for
@@ -127,7 +119,7 @@ app.get("/images", (req, res) => {
       }
     }
   } else if (imageSearchQuery !== undefined) {
-    //images?searchQuery=flower&pageNumber=1
+    //e.g. images?searchQuery=flower&pageNumber=1
     try {
       const currentSearchQuery = imageSearchQuery.toLowerCase();
       const jmespathExpression = `images[?imagename.contains(@, '${currentSearchQuery}') || tags.contains(@, '${currentSearchQuery}')]`;
@@ -143,6 +135,7 @@ app.get("/images", (req, res) => {
   }
 });
 
+//download request
 app.get("/images/:imgid", (req, res) => {
     const imageId = req.params.imgid
     try {
