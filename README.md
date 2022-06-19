@@ -3,6 +3,9 @@
 ## How to use this template?
 This template includes the routes and responses required to interact with the Templafy Classic Custom Connector.
 
+In the content.json file, I've included a list of folders and images to be used for this template.
+Feel free to update that list to include your own images and folders.
+
 The 4 routes required are detailed in the article [here](https://support.templafy.com/hc/en-us/articles/4409277248273-How-to-build-a-Classic-Custom-Content-Connector-API-)
 
 1. POST https://example.com/oauth2/token
