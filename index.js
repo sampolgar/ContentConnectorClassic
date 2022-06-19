@@ -24,38 +24,43 @@ app.post("/oauth2/token", (req, res) => {
 
 //folder requests
 app.get("/folders", (req, res) => {
-  for (const key in req.query) {
-    console.log("hello" + key, req.query[key]);
-  }
-
-  //search query - get the navigation path if it's available
+  //get the navigation path if it's available
     let navigationPath = req.query.navigationPath;
 
   //if navigationPath is available, return the folders within the path
   if (navigationPath && navigationPath !== undefined) {
+      
     if (navigationPath.endsWith("/")) {
         navigationPath = navigationPath.slice(0, -1);
       }
 
     try {
-        //get the folders with the navigation path - I don't think this is necessary
-        const emptyFolders = []
-        res.send(emptyFolders)
-    //   const jmespathExpression = `folders[?navigationPath=='${navigationPath}']`;
-    //   const folderSearch = jmespath.search(content, jmespathExpression);
-    //   console.log("sending back folder search: ", folderSearch);
-    //   res.send(folderSearch);
+        //get the folderid from the navigation path. If the nav path is 100/101, we want to get 101
+        const folderJmesPathExpression = `folders[?navigationPath=='${navigationPath}']`;
+        const folderIdSearch = jmespath.search(content, folderJmesPathExpression);
+        const folderId = folderIdSearch[0].id;
+
+        //find all subfolders within the folderid
+        const jmesPathExpression = `folders[?parentFolderId=='${folderId}']`;
+        const folderSearch = jmespath.search(content, jmesPathExpression);
+        res.send(folderSearch);
     } catch (error) {
-      console.log("folder search with navigationpath error");
+      console.log("folder search with navigationpath error" + error);
       res.sendStatus(500);
     }
   } else {
     //filter the content.json file for all folders
     console.log("here in else");
     try {
-      const jmespathExpression = `folders`;
-      const folderSearch = jmespath.search(content, "folders");
-      res.send(folderSearch);
+
+    const jmespathExpression = `min_by(folders, &id)`
+    const folderSearch = jmespath.search(content, jmespathExpression);
+    const arrayResult = [];
+    arrayResult.push(folderSearch);
+    res.send(arrayResult);
+    //   const jmespathExpression = `folders`;
+    //   const folderSearch = jmespath.search(content, "folders");
+    //   res.send(folderSearch);
     } catch (error) {
       console.log(error + " folder search error");
       res.sendStatus(500);
@@ -79,9 +84,9 @@ app.get("/images", (req, res) => {
   const imageSearchQuery = req.query.searchQuery; //what to search for
   const pageNumber = req.query.pageNumber; //support pagination
   let navigationPath = req.query.navigationPath; //which folder to search
-  if (navigationPath.endsWith("/")) {
-    navigationPath = navigationPath.slice(0, -1);
-  }
+    if (navigationPath.endsWith("/")) {
+        navigationPath = navigationPath.slice(0, -1);
+    }
 
   if (!navigationPath && imageSearchQuery === undefined) {
     console.log("hello here in images");
@@ -95,6 +100,7 @@ app.get("/images", (req, res) => {
       console.log(error + " 1st image search error");
       res.sendStatus(500);
     }
+    
   } else if (navigationPath && navigationPath !== undefined) {
     //2. images?navigationPath=100&pageNumber=1 find all images in the navigation path
     console.log("here on 91");

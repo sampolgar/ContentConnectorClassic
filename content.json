@@ -4,31 +4,31 @@
       "id": "100",
       "name": "All Images",
       "navigationPath": "100",
-      "parentid": "99"
+      "parentFolderId": "99"
     },
     {
       "id": "101",
       "name": "Food",
       "navigationPath": "100/101",
-      "parentid": "100"
+      "parentFolderId": "100"
     },
     {
       "id": "102",
       "name": "Holidays",
       "navigationPath": "100/102",
-      "parentid": "100"
+      "parentFolderId": "100"
     },
     {
       "id": "103",
       "name": "Wine",
       "navigationPath": "100/103",
-      "parentid": "100"
+      "parentFolderId": "100"
     },
     {
         "id": "104",
         "name": "Fine Wine",
         "navigationPath": "100/103/104",
-        "parentid": "103"
+        "parentFolderId": "103"
       }
   ],
   "images": [
