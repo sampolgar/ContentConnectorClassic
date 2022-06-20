@@ -1,7 +1,6 @@
 const express = require("express");
 const content = require("./content.json");
 const jmespath = require("jmespath");
-const fs = require("fs");
 
 const app = express();
 const PORT = 3000;
