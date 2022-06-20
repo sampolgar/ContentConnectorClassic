@@ -23,25 +23,25 @@ app.post("/oauth2/token", (req, res) => {
 //folder requests
 app.get("/folders", (req, res) => {
   //get the navigation path if it's available
-    let navigationPath = req.query.navigationPath;
+  let navigationPath = req.query.navigationPath;
 
   //if navigationPath is available, return the folders within the path
   if (navigationPath && navigationPath !== undefined) {
-      
+
     if (navigationPath.endsWith("/")) {
-        navigationPath = navigationPath.slice(0, -1);
-      }
+      navigationPath = navigationPath.slice(0, -1);
+    }
 
     try {
-        //get the folderid from the navigation path. If the nav path is 100/101, we want to get 101
-        const folderJmesPathExpression = `folders[?navigationPath=='${navigationPath}']`;
-        const folderIdSearch = jmespath.search(content, folderJmesPathExpression);
-        const folderId = folderIdSearch[0].id;
+      //get the folderid from the navigation path. If the nav path is 100/101, we want to get 101
+      const folderJmesPathExpression = `folders[?navigationPath=='${navigationPath}']`;
+      const folderIdSearch = jmespath.search(content, folderJmesPathExpression);
+      const folderId = folderIdSearch[0].id;
 
-        //find all subfolders within the folderid
-        const jmesPathExpression = `folders[?parentFolderId=='${folderId}']`;
-        const folderSearch = jmespath.search(content, jmesPathExpression);
-        res.send(folderSearch);
+      //find all subfolders within the folderid
+      const jmesPathExpression = `folders[?parentFolderId=='${folderId}']`;
+      const folderSearch = jmespath.search(content, jmesPathExpression);
+      res.send(folderSearch);
     } catch (error) {
       console.log("folder search with navigationpath error" + error);
       res.sendStatus(500);
@@ -49,9 +49,9 @@ app.get("/folders", (req, res) => {
   } else {
     //display the root folder
     try {
-    const jmespathExpression = `min_by(folders, &id)`
-    const folderSearch = [jmespath.search(content, jmespathExpression)];
-    res.send(folderSearch);
+      const jmespathExpression = `min_by(folders, &id)`
+      const folderSearch = [jmespath.search(content, jmespathExpression)];
+      res.send(folderSearch);
     } catch (error) {
       console.log(error + " folder search error");
       res.sendStatus(500);
@@ -68,14 +68,14 @@ app.get("/images", (req, res) => {
   const pageNumber = req.query.pageNumber;          //support pagination
   let navigationPath = req.query.navigationPath;    //which folder to search
 
-    if (navigationPath.endsWith("/")) {
-        navigationPath = navigationPath.slice(0, -1);
-    }
+  if (navigationPath.endsWith("/")) {
+    navigationPath = navigationPath.slice(0, -1);
+  }
 
-    //1. images?navigationPath=&pageNumber=1
+  //1. images?navigationPath=&pageNumber=1
   if (!navigationPath && imageSearchQuery === undefined) {
     console.log("hello here in images");
-    
+
     //return all images except if folders are present. If folders, return folders.
     try {
       const imageArry = []
@@ -84,7 +84,7 @@ app.get("/images", (req, res) => {
       console.log(error + " 1st image search error");
       res.sendStatus(500);
     }
-    
+
   } else if (navigationPath && navigationPath !== undefined) {
     //2. images?navigationPath=100&pageNumber=1 find all images in the navigation path
 
@@ -96,7 +96,7 @@ app.get("/images", (req, res) => {
       } catch (error) {
         console.log(
           error +
-            " error with search like images?navigationPath=100&pageNumber=1"
+          " error with search like images?navigationPath=100&pageNumber=1"
         );
         res.sendStatus(500);
       }
@@ -136,18 +136,18 @@ app.get("/images", (req, res) => {
 
 //download request
 app.get("/images/:imgid", (req, res) => {
-    const imageId = req.params.imgid
-    try {
-        const jmespathExpression = `images[?id=='${imageId}'].previewUrl | [0]`;
-        const imageDownloadSearch = jmespath.search(content, jmespathExpression);
-        downloadObj = {
-            "downloadUrl": imageDownloadSearch
-        }
-        res.send(downloadObj);
+  const imageId = req.params.imgid
+  try {
+    const jmespathExpression = `images[?id=='${imageId}'].previewUrl | [0]`;
+    const imageDownloadSearch = jmespath.search(content, jmespathExpression);
+    downloadObj = {
+      "downloadUrl": imageDownloadSearch
     }
-    catch {
-        res.sendStatus(500);
-    }
+    res.send(downloadObj);
+  }
+  catch {
+    res.sendStatus(500);
+  }
 });
 
 app.listen(PORT, () => {
