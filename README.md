@@ -74,7 +74,7 @@ use postman to query the API
 # cURL requests
 
 ## oauth2/token
-**Request**
+**Request from Templafy**
 ```
 curl -X POST \
   -H "host":"68e0-220-233-33-78.au.ngrok.io" \
@@ -117,7 +117,7 @@ Unauthorized
 
 
 ## Folder
-**Request**
+**Request from Templafy**
 ```
 curl -X GET \
   -H "host":"68e0-220-233-33-78.au.ngrok.io" \
@@ -143,7 +143,7 @@ X-Powered-By: Express
 ```
 
 ## Images
-**Request**
+**Request from Templafy**
 ```
 curl -X GET \
   -H "host":"68e0-220-233-33-78.au.ngrok.io" \
@@ -169,7 +169,7 @@ X-Powered-By: Express
 ```
 
 ## Image Download
-**Request**
+**Request from Templafy**
 ```
  curl -X GET \
   -H "host":"68e0-220-233-33-78.au.ngrok.io" \
