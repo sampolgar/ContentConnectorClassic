@@ -64,5 +64,131 @@ use postman to query the API
 - [x] support folder request with navigationPath e.g. folders?navigationPath=100/101
 - [x] support image request with dynamic image list
 - [x] support navigation path folder structure
+- [x] sample curl requests
 - [ ] support pagination
 - [ ] include postman collection in github repo
+
+
+# cURL requests
+
+## oauth2/token
+**Request**
+```
+curl -X POST \
+  -H "host":"68e0-220-233-33-78.au.ngrok.io" \
+  -H "content-type":"application/x-www-form-urlencoded"
+  -H "content-length":"99"
+  -H "traceparent":"00-dfe1bbe7333246538129fd1976df6bf9-0a33d1ab5696171c-01" \
+  -H "x-forwarded-proto":"https" \
+  -H "x-templafyuser":"spo@templafy.com" \
+  -H "accept-encoding":"gzip" \
+  -d "grant_type=client_credentials" \
+  -d "client_secret=clientSecretFromTemplafy" \
+  -d "client_id=clientIdFromTemplafy" \
+  "https://68e0-220-233-33-78.au.ngrok.io/oauth2/token"
+  ```
+
+**Response - oauth token is valid**
+```
+Content-Length: 71
+Content-Type: application/json; charset=utf-8
+Date: Mon, 20 Jun 2022 03:03:04 GMT
+Etag: W/"47-pmPeHdyyEDqCsvl5R4sx/lA70Pc"
+Ngrok-Trace-Id: dfe1bbe7333246538129fd1976df6bf9
+X-Powered-By: Express
+
+{"access_token":"fake_token","expires_in":"3600","token_type":"Bearer"}
+```
+
+**Response - oauth token is invalid**
+```
+HTTP/1.1 401 Unauthorized
+Content-Length: 12
+Content-Type: text/plain; charset=utf-8
+Date: Mon, 20 Jun 2022 03:39:45 GMT
+Etag: W/"c-dAuDFQrdjS3hezqxDTNgW7AOlYk"
+Ngrok-Trace-Id: dfe1bbe7333246538129fd1976df6bf9
+X-Powered-By: Express
+
+Unauthorized
+```
+
+
+## Folder
+**Request**
+```
+curl -X GET \
+  -H "host":"68e0-220-233-33-78.au.ngrok.io" \
+  -H "authorization":"Bearer fake_token" \
+  -H "traceparent":"00-dfe1bbe7333246538129fd1976df6bf9-0a33d1ab5696171c-01" \
+  -H "x-forwarded-for":"20.193.37.124" \
+  -H "x-templafyuser":"spo@templafy.com" \
+  -H "accept-encoding":"gzip" \
+  "https://68e0-220-233-33-78.au.ngrok.io/folders?libraryId=Asset&navigationPath=100%2F103"
+```
+
+**Response**
+```
+HTTP/1.1 200 OK
+Content-Length: 87
+Content-Type: application/json; charset=utf-8
+Date: Mon, 20 Jun 2022 03:09:37 GMT
+Etag: W/"57-3WkFM/l6+x5A1GnaJrArGv7n2eA"
+Ngrok-Trace-Id: dfe1bbe7333246538129fd1976df6bf9
+X-Powered-By: Express
+
+[{"id":"104","name":"Fine Wine","navigationPath":"100/103/104","parentFolderId":"103"}]
+```
+
+## Images
+**Request**
+```
+curl -X GET \
+  -H "host":"68e0-220-233-33-78.au.ngrok.io" \
+  -H "authorization":"Bearer fake_token" \
+  -H "traceparent":"00-dfe1bbe7333246538129fd1976df6bf9-0a33d1ab5696171c-01" \
+  -H "x-forwarded-for":"20.193.37.124" \
+  -H "x-forwarded-proto":"https"
+  -H "x-templafyuser":"spo@templafy.com" \
+  -H "accept-encoding":"gzip" \
+  "https://68e0-220-233-33-78.au.ngrok.io/images?navigationPath=104&pageNumber=1&pageSize=30"
+```
+**Response**
+```
+HTTP/1.1 200 OK
+Content-Length: 499
+Content-Type: application/json; charset=utf-8
+Date: Mon, 20 Jun 2022 03:36:43 GMT
+Etag: W/"1f3-9lpBJCibo2S0uVXxfMUukVuYLdo"
+Ngrok-Trace-Id: dfe1bbe7333246538129fd1976df6bf9
+X-Powered-By: Express
+
+[{"folderId":"104","id":"1013","height":100,"width":100,"mimeType":"image/jpeg","previewUrl":"https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine3.jpg","imagename":"red burgundy bottle 1","tags":"drink"},{"folderId":"104","id":"1014","height":100,"width":100,"mimeType":"image/jpeg","previewUrl":"https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine4.jpg","imagename":"red burgundy bottle 2","tags":"drink"}]
+```
+
+## Image Download
+**Request**
+```
+ curl -X GET \
+  -H "host":"68e0-220-233-33-78.au.ngrok.io" \
+  -H "authorization":"Bearer fake_token" \
+  -H "traceparent":"00-dfe1bbe7333246538129fd1976df6bf9-0a33d1ab5696171c-01" \
+  -H "x-forwarded-for":"20.193.37.124" \
+  -H "x-forwarded-proto":"https"
+  -H "x-templafyuser":"spo@templafy.com" \
+  -H "accept-encoding":"gzip" \
+  "https://68e0-220-233-33-78.au.ngrok.io/images/1004"
+```
+
+**Response**
+```
+HTTP/1.1 200 OK
+Content-Length: 120
+Content-Type: application/json; charset=utf-8
+Date: Mon, 20 Jun 2022 03:01:03 GMT
+Etag: W/"78-fkQm2+2ibGE9OE3Gc2iZnesicVQ"
+Ngrok-Trace-Id: dfe1bbe7333246538129fd1976df6bf9
+X-Powered-By: Express
+
+{"downloadUrl":"https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food4.jpg"}
+```
