@@ -3,10 +3,11 @@
 ## How to use this template?
 This template includes the routes and responses required to interact with the Templafy Classic Custom Connector.
 
-In the content.json file, I've included a list of folders and images to be used for this template.
+In the [content.json](https://github.com/sampolgar/ContentConnector/blob/main/content.json) file, I've included a list of folders and images to be used for this template.
 Feel free to update that list to include your own images and folders.
 
-The 4 routes required are detailed in the article [here](https://support.templafy.com/hc/en-us/articles/4409277248273-How-to-build-a-Classic-Custom-Content-Connector-API-)
+The 4 routes required are detailed in the article [here](https://support.templafy.com/hc/en-us/articles/4409277248273-How-to-build-a-Classic-Custom-Content-Connector-API-).
+I've included [sample cURL requests](https://github.com/sampolgar/ContentConnector#curl-requests) to mirror what Templafy sends to your connector. The responses below are what this project sends back to Templafy.
 
 1. POST https://example.com/oauth2/token
 2. GET https://example.com/folders
@@ -26,22 +27,21 @@ The 4 routes required are detailed in the article [here](https://support.templaf
 4. Deploy to Azure
 5. Configure in Templafy Custom Content Connector
 
-# 1 - download this template
-
-# 2 - run locally
+# 1 - download and run locally
 1. cd to the folder containing this template e.g. cd ~/templafy-classic-content-connector-template
-2. run `npm install`
-3. run `node index.js`
-4. open http://localhost:3000/
+2. run git clone  https://github.com/sampolgar/ContentConnector.git
+3. run `npm install`
+4. run `node index.js`
+5. open http://localhost:3000/
 
-# 3 - test locally
+# 2 - test locally
 use postman to query the API
 1. POST http://localhost:3000/oauth2/token
 2. GET http://localhost:3000/folders
 3. GET http://localhost:3000/images/navigationPath=&pageNumber=1
 4. GET http://localhost:3000/images/1001/
 
-# 4 - test online
+# 3 - test online
 1. install [ngrok](https://ngrok.com/)
 2. run setup instructions from [ngrok](https://ngrok.com/)
 3. run `ngrok http 3000`
@@ -56,6 +56,7 @@ use postman to query the API
 4. Create a new secret secrets.AZUREAPPSERVICE_PUBLISHPROFILE , and paste the text from Get Publish Profile
 5. Open .github/workflows/deploy_main_to_azure_web_app.yml to adjust the app-name to match the name of your Azure Web App
 
+
 ## To Do
 - [x] respond to POST oAuth request
 - [x] respond to GET folder request with []
@@ -67,6 +68,7 @@ use postman to query the API
 - [x] sample curl requests
 - [ ] support pagination
 - [ ] include postman collection in github repo
+
 
 
 # cURL requests
