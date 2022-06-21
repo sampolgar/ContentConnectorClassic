@@ -25,11 +25,11 @@
       "parentFolderId": "100"
     },
     {
-        "id": "104",
-        "name": "Fine Wine",
-        "navigationPath": "100/103/104",
-        "parentFolderId": "103"
-      }
+      "id": "104",
+      "name": "Fine Wine",
+      "navigationPath": "100/103/104",
+      "parentFolderId": "103"
+    }
   ],
   "images": [
     {

@@ -6,12 +6,9 @@ const app = express();
 const PORT = 3000;
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.sendStatus(200);
-});
-
-//oauth requests
+//oauth request
 app.post("/oauth2/token", (req, res) => {
+  //authenticate
   const tokenResponse = {
     access_token: "fake_token",
     expires_in: "3600",
@@ -22,133 +19,123 @@ app.post("/oauth2/token", (req, res) => {
 
 //folder requests
 app.get("/folders", (req, res) => {
-  //get the navigation path if it's available
+  //get the navigation path
   let navigationPath = req.query.navigationPath;
+  let parsedNavPath = navigationPathParser(navigationPath);
+  console.log("parsednavpath: " + parsedNavPath);
 
-  //if navigationPath is available, return the folders within the path
-  if (navigationPath && navigationPath !== undefined) {
-
-    if (navigationPath.endsWith("/")) {
-      navigationPath = navigationPath.slice(0, -1);
-    }
-
+  if (parsedNavPath === "emptyNavPath") {
+    //find the root folder and send it back to Templafy
     try {
-      //get the folderid from the navigation path. If the nav path is 100/101, we want to get 101
-      const folderJmesPathExpression = `folders[?navigationPath=='${navigationPath}']`;
-      const folderIdSearch = jmespath.search(content, folderJmesPathExpression);
-      const folderId = folderIdSearch[0].id;
-
-      //find all subfolders within the folderid
-      const jmesPathExpression = `folders[?parentFolderId=='${folderId}']`;
-      const folderSearch = jmespath.search(content, jmesPathExpression);
-      res.send(folderSearch);
-    } catch (error) {
-      console.log("folder search with navigationpath error" + error);
-      res.sendStatus(500);
-    }
-  } else {
-    //display the root folder
-    try {
-      const jmespathExpression = `min_by(folders, &id)`
+      const jmespathExpression = `min_by(folders, &id)`;
       const folderSearch = [jmespath.search(content, jmespathExpression)];
       res.send(folderSearch);
     } catch (error) {
+      console.log(error + " root folder error");
+      res.sendStatus(500);
+    }
+  } else {
+    //display the subfolders
+    try {
+      const jmespathExpression = `folders[?parentFolderId=='${parsedNavPath}']`;
+      const folderSearch = jmespath.search(content, jmespathExpression);
+      res.send(folderSearch);
+    } catch {
       console.log(error + " folder search error");
       res.sendStatus(500);
     }
   }
 });
 
-
 //image requests
-
 app.get("/images", (req, res) => {
-  //support search queries
-  const imageSearchQuery = req.query.searchQuery;   //what to search for
-  const pageNumber = req.query.pageNumber;          //support pagination
-  let navigationPath = req.query.navigationPath;    //which folder to search
+  const imageSearchQuery = req.query.searchQuery; //what to search for
+  const pageNumber = req.query.pageNumber; //support pagination - pageNumber always starts at 1
+  const pageSize = req.query.pageSize; // page size is always 30
 
-  if (navigationPath.endsWith("/")) {
-    navigationPath = navigationPath.slice(0, -1);
-  }
+  let navigationPath = req.query.navigationPath; //which folder to search
+  let parsedNavPath = navigationPathParser(navigationPath);
 
-  //1. images?navigationPath=&pageNumber=1
-  if (!navigationPath && imageSearchQuery === undefined) {
-    console.log("hello here in images");
-
-    //return all images except if folders are present. If folders, return folders.
+  console.log(imageSearchQuery + "searchqery");
+  if (imageSearchQuery !== undefined && parsedNavPath === "emptyNavPath") {
+    //search for images with the search query
     try {
-      const imageArry = []
+      const currentSearchQuery = imageSearchQuery.toLowerCase();
+      //search image name and tags for the search query
+      const jmespathExpression = `images[?imagename.contains(@, '${currentSearchQuery}') || tags.contains(@, '${currentSearchQuery}')]`;
+      const imageSearch = jmespath.search(content, jmespathExpression);
+      res.send(imageSearch);
+    } catch (error) {
+      console.log(error + " image search error");
+      res.sendStatus(500);
+    }
+  } else if (
+    imageSearchQuery !== undefined &&
+    parsedNavPath !== "emptyNavPath"
+  ) {
+    //search for images with the image search query in the specified folder
+    try {
+      const currentSearchQuery = imageSearchQuery.toLowerCase();
+      const jmespathExpression = `images[?folderId=='${parsedNavPath}' && imagename.contains(@, '${currentSearchQuery}') || tags.contains(@, '${currentSearchQuery}')]`;
+      const imageSearch = jmespath.search(content, jmespathExpression);
+      res.send(imageSearch);
+    } catch {
+      console.log(error + " image and folder search error");
+      res.sendStatus(500);
+    }
+  } else if (parsedNavPath === "emptyNavPath") {
+    //return an empty array. Unless you have no folders, then return all images
+    try {
+      const imageArry = [];
       res.send(imageArry);
     } catch (error) {
       console.log(error + " 1st image search error");
       res.sendStatus(500);
     }
-
-  } else if (navigationPath && navigationPath !== undefined) {
-    //2. images?navigationPath=100&pageNumber=1 find all images in the navigation path
-
-    if (!navigationPath.includes("/")) {
-      try {
-        const imageJmesPathExpression = `images[?folderId=='${navigationPath}']`;
-        const imageSearch = jmespath.search(content, imageJmesPathExpression);
-        res.send(imageSearch);
-      } catch (error) {
-        console.log(
-          error +
-          " error with search like images?navigationPath=100&pageNumber=1"
-        );
-        res.sendStatus(500);
-      }
-    } else {
-      try {
-        //get the folderid from the navigation path
-        const folderJmesPathExpression = `folders[?navigationPath=='${navigationPath}']`;
-        const folderSearch = jmespath.search(content, folderJmesPathExpression);
-        const folderId = folderSearch[0].id;
-        console.log("folderId: ", folderId);
-
-        //get the images from this folder
-        const imageJmesPathExpression = `images[?folderId=='${folderId}']`;
-        const imageSearch = jmespath.search(content, imageJmesPathExpression);
-        res.send(imageSearch);
-      } catch (error) {
-        console.log(error + " 2nd image search error");
-        res.sendStatus(500);
-      }
-    }
-  } else if (imageSearchQuery !== undefined) {
-    //e.g. images?searchQuery=flower&pageNumber=1
+  } else if (parsedNavPath.length > 0) {
+    //search for all images in the selected folder
     try {
-      const currentSearchQuery = imageSearchQuery.toLowerCase();
-      const jmespathExpression = `images[?imagename.contains(@, '${currentSearchQuery}') || tags.contains(@, '${currentSearchQuery}')]`;
-      const imageSearch = jmespath.search(content, jmespathExpression);
+      const imageJmesPathExpression = `images[?folderId=='${parsedNavPath}']`;
+      const imageSearch = jmespath.search(content, imageJmesPathExpression);
       res.send(imageSearch);
     } catch (error) {
-      console.log(error + " 3rd image search error");
+      console.log(error + "searching images in a folder");
       res.sendStatus(500);
     }
-  } else {
-    console.log(error + " end of else if statement. Need to catch this");
-    res.sendStatus(500);
   }
 });
 
 //download request
 app.get("/images/:imgid", (req, res) => {
-  const imageId = req.params.imgid
+  const imageId = req.params.imgid;
   try {
     const jmespathExpression = `images[?id=='${imageId}'].previewUrl | [0]`;
     const imageDownloadSearch = jmespath.search(content, jmespathExpression);
     downloadObj = {
-      "downloadUrl": imageDownloadSearch
-    }
+      downloadUrl: imageDownloadSearch,
+    };
     res.send(downloadObj);
-  }
-  catch {
+  } catch (error) {
+    console.log(error + " downloading image error");
     res.sendStatus(500);
   }
 });
+
+//navigation Path Parser
+function navigationPathParser(navigationPath) {
+  // strip the ending slash
+  if (navigationPath.endsWith("/")) {
+    navigationPath = navigationPath.slice(0, -1);
+  }
+  //check if navpath is empty
+  if (navigationPath === "") {
+    return "emptyNavPath";
+  } else {
+    //return the parentId of the selected folder
+    console.log("navpathsplit: " + navigationPath.split("/").at(-1));
+    return navigationPath.split("/").at(-1);
+  }
+}
 
 app.listen(PORT, () => {
   console.log(`Express server currently running on port ${PORT}`);
