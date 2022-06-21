@@ -28,29 +28,30 @@ I've included [sample cURL requests](https://github.com/sampolgar/ContentConnect
 4. Deploy to Azure
 5. Configure in Templafy Custom Content Connector
 
-# 1 - download and run locally
+## 1 - Download and run locally
 1. cd to the folder containing this template e.g. cd ~/templafy-classic-content-connector-template
 2. run git clone  https://github.com/sampolgar/ContentConnector.git
 3. run `npm install`
 4. run `node index.js`
 5. open http://localhost:3000/
 
-# 2 - test locally
+## 2 - Test locally
 use postman to query the API
 1. POST http://localhost:3000/oauth2/token
 2. GET http://localhost:3000/folders
 3. GET http://localhost:3000/images/navigationPath=&pageNumber=1
 4. GET http://localhost:3000/images/1001/
 
-# 3 - test online
+## 3 - Test online
 1. install [ngrok](https://ngrok.com/)
 2. run setup instructions from [ngrok](https://ngrok.com/)
 3. run `ngrok http 3000`
 
-# 4 - configure in Templafy Custom Content Connector settings page
+## 4 - Configure in Templafy Custom Content Connector settings page
 
-# 5 - deploy to Cloud Infrastructure
-## Example - Azure Cloud Service
+
+## 5 - Deploy to Cloud Infrastructure
+### Example - Azure Cloud Service
 1. create an Azure Web App (Node 16)
 2. Press Get Publish Profile and copy all text
 3. In github go to Settings > Secrets
