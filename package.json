@@ -1,5 +1,5 @@
 {
-  "name": "contentconnector",
+  "name": "ContentConnectorClassic",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamuelPolgar/ContentConnector.git"
+    "url": "git+https://github.com/SamuelPolgar/ContentConnectorClassic.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SamuelPolgar/ContentConnector/issues"
+    "url": "https://github.com/SamuelPolgar/ContentConnectorClassic/issues"
   },
-  "homepage": "https://github.com/SamuelPolgar/ContentConnector#readme",
+  "homepage": "https://github.com/SamuelPolgar/ContentConnectorClassic#readme",
   "dependencies": {
     "express": "^4.17.3",
     "jmespath": "^0.16.0"
