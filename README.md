@@ -7,7 +7,7 @@ In the [content.json](https://github.com/sampolgar/ContentConnector/blob/main/co
 Feel free to update that list to include your own images and folders.
 
 The 4 routes required are detailed in the article [here](https://support.templafy.com/hc/en-us/articles/4409277248273-How-to-build-a-Classic-Custom-Content-Connector-API-).
-I've included [sample cURL requests](https://github.com/sampolgar/ContentConnector#curl-requests) to mirror what Templafy sends to your connector. The responses below are what this project sends back to Templafy.
+I've included [sample cURL requests](https://github.com/sampolgar/ContentConnector#curl-requests) to mirror what Templafy sends to your connector.
 
 1. POST https://example.com/oauth2/token
 2. GET https://example.com/folders
@@ -15,10 +15,11 @@ I've included [sample cURL requests](https://github.com/sampolgar/ContentConnect
 4. GET https://example.com/images/{assetId}
 
 ## Description
-- Each page load from within Templafy will query both folders and images
+- Each page load or folder click will query both folders and images
 - The custom connector needs to support a navigationPath query parameter to return a list of folders and images at a given path
 - E.g. folders?navigationPath=100/101 will return the folders at the path 100/101 or the subfolders of folder 101
 - images?navigationPath=100/101 will return the images at the path 100/101 or images for folder 101
+
 
 ### Instructions
 1. Fork the template
@@ -70,6 +71,31 @@ use postman to query the API
 - [ ] include postman collection in github repo
 
 
+# Organizing folder structure
+
+The folder structure is hierarchical, the navigationPath parameters are triggered as the user navigates down the tree.
+
+`folders?navigationPath=`
+
+Should return your root folder. The content.json shows All Images as the parent for the 3 subfolders
+
+![First Folder Request](https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-GithubImages/Folders-Request1.png)
+
+`folders?navigationPath=100`
+
+Should return your parent's subfolders
+
+![First Folder Request](https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-GithubImages/Folders-Request2.png)
+
+`folders?navigationPath=100/103`
+
+Should return your individual subfolder
+
+![First Folder Request](https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-GithubImages/Folders-Request3.png)
+
+As you can see there are both folders and images in the response, that's because each step Templafy queries folders and images at the navigation path.
+
+If you have no folders, you can return an empty array and send all images back to the images empty navigation path request.
 
 # cURL requests
 
