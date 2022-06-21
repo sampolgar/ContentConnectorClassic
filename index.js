@@ -22,7 +22,6 @@ app.get("/folders", (req, res) => {
   //get the navigation path
   let navigationPath = req.query.navigationPath;
   let parsedNavPath = navigationPathParser(navigationPath);
-  console.log("parsednavpath: " + parsedNavPath);
 
   if (parsedNavPath === "emptyNavPath") {
     //find the root folder and send it back to Templafy
@@ -56,7 +55,6 @@ app.get("/images", (req, res) => {
   let navigationPath = req.query.navigationPath; //which folder to search
   let parsedNavPath = navigationPathParser(navigationPath);
 
-  console.log(imageSearchQuery + "searchqery");
   if (imageSearchQuery !== undefined && parsedNavPath === "emptyNavPath") {
     //search for images with the search query
     try {
@@ -69,7 +67,7 @@ app.get("/images", (req, res) => {
       console.log(error + " image search error");
       res.sendStatus(500);
     }
-  } else if (
+  } else if ( 
     imageSearchQuery !== undefined &&
     parsedNavPath !== "emptyNavPath"
   ) {
