@@ -3,11 +3,11 @@
 ## How to use this template?
 This template includes the routes and responses required to interact with the Templafy Classic Custom Connector.
 
-In the [content.json](https://github.com/sampolgar/ContentConnector/blob/main/content.json) file, I've included a list of folders and images to be used for this template.
+In the [content.json](https://github.com/sampolgar/ContentConnectorClassic/blob/main/content.json) file, I've included a list of folders and images to be used for this template.
 Feel free to update that list to include your own images and folders.
 
 The 4 routes required are detailed in the article [here](https://support.templafy.com/hc/en-us/articles/4409277248273-How-to-build-a-Classic-Custom-Content-Connector-API-).
-I've included [sample cURL requests](https://github.com/sampolgar/ContentConnector#curl-requests) to mirror what Templafy sends to your connector.
+I've included [sample cURL requests](https://github.com/sampolgar/ContentConnectorClassic#curl-requests) to mirror what Templafy sends to your connector.
 
 1. POST https://example.com/oauth2/token
 2. GET https://example.com/folders
@@ -30,7 +30,7 @@ I've included [sample cURL requests](https://github.com/sampolgar/ContentConnect
 
 ## 1 - Download and run locally
 1. cd to the folder containing this template e.g. cd ~/templafy-classic-content-connector-template
-2. run git clone  https://github.com/sampolgar/ContentConnector.git
+2. run git clone  https://github.com/sampolgar/ContentConnectorClassic.git
 3. run `npm install`
 4. run `node index.js`
 5. open http://localhost:3000/
