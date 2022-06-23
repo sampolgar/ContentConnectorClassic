@@ -1,30 +1,32 @@
 {
   "folders": [
     {
-      "id": "100",
-      "name": "All Images",
-      "navigationPath": "100",
-      "parentFolderId": "99"
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
     },
     {
-      "id": "101",
-      "name": "Food",
-      "navigationPath": "100/101",
-      "parentFolderId": "100"
+      "id": "4",
+      "name": "Product Images",
+      "navigationPath": "1450/4",
+      "parentFolderId": "1450"
     },
     {
-      "id": "102",
-      "name": "Holidays",
-      "navigationPath": "100/102",
-      "parentFolderId": "100"
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
     },
     {
-      "id": "103",
-      "name": "Wine",
-      "navigationPath": "100/103",
-      "parentFolderId": "100"
+      "id": "5",
+      "name": "Product Artworks",
+      "navigationPath": "1450/5",
+      "parentFolderId": "1450"
     },
     {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": "104",
       "name": "Fine Wine",
       "navigationPath": "100/103/104",
@@ -32,155 +34,754 @@
     }
   ],
   "images": [
+=======
+=======
+>>>>>>> Stashed changes
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     {
-      "folderId": "101",
-      "id": "1001",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food1.jpg",
-      "imagename": "ocean restaurant",
-      "tags": "restaurant, ocean"
+      "id": "6",
+      "name": "Product Documentation",
+      "navigationPath": "1450/6",
+      "parentFolderId": "1450"
     },
     {
-      "folderId": "101",
-      "id": "1002",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food2.jpg",
-      "imagename": "vegetable plate alain passard",
-      "tags": "vegetables, french restaurant, famous chef"
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
     },
     {
-      "folderId": "101",
-      "id": "1003",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food3.jpg",
-      "imagename": "spanish restaurant",
-      "tags": "spain, spanish restaurant"
+      "id": "8",
+      "name": "Awards",
+      "navigationPath": "1450/8",
+      "parentFolderId": "1450"
     },
     {
-      "folderId": "101",
-      "id": "1004",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food4.jpg",
-      "imagename": "rustic restaurant",
-      "tags": "rustic restaurant"
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
     },
     {
-      "folderId": "101",
-      "id": "1005",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Food5.jpg",
-      "imagename": "fine food",
-      "tags": "fine food, fine restaurant, michelin"
+      "id": "12",
+      "name": "Icons",
+      "navigationPath": "1450/12",
+      "parentFolderId": "1450"
     },
     {
-      "folderId": "102",
-      "id": "1006",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday1.png",
-      "imagename": "ocean and beach",
-      "tags": "ocean getaway"
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
     },
     {
-      "folderId": "102",
-      "id": "1007",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday2.png",
-      "imagename": "beach",
-      "tags": "beach resort"
+      "id": "13",
+      "name": "Product Videos",
+      "navigationPath": "1450/13",
+      "parentFolderId": "1450"
     },
     {
-      "folderId": "102",
-      "id": "1008",
-      "height": 100,
-      "width": 100,
-      "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday3.png",
-      "imagename": "resort",
-      "tags": "resort, australia, beach"
+      "id": "18",
+      "name": "Storage",
+      "navigationPath": "18",
+      "parentFolderId": ""
+<<<<<<< Updated upstream
     },
+    {
+      "id": "14",
+      "name": "Only",
+      "navigationPath": "18/14",
+      "parentFolderId": "18"
+    },
+    {
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+    {
+      "id": "15",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "1450/15",
+      "parentFolderId": "1450"
+    },
+    {
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+    {
+      "id": "16",
+      "name": "Leaflets",
+      "navigationPath": "1450/16",
+      "parentFolderId": "1450"
+    },
+    {
+      "id": "11",
+      "name": "Logos",
+      "navigationPath": "11",
+      "parentFolderId": ""
+    },
+    {
+      "id": "17",
+      "name": "of Certifications and Testings",
+      "navigationPath": "11/17",
+      "parentFolderId": "11"
+    },
+    {
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+    {
+      "id": "18",
+      "name": "Consumer Benefit Images",
+      "navigationPath": "1450/18",
+      "parentFolderId": "1450"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "19",
+      "name": "Product Images",
+      "navigationPath": "211815/19",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "20",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "72102/20",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "21",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "211815/21",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "70187",
+      "name": "HASH",
+      "navigationPath": "70187",
+      "parentFolderId": ""
+    },
+    {
+      "id": "22",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "70187/22",
+      "parentFolderId": "70187"
+    },
+    {
+      "id": "7018",
+      "name": "HAS",
+      "navigationPath": "7018",
+      "parentFolderId": ""
+    },
+    {
+      "id": "23",
+      "name": "Product Images",
+      "navigationPath": "7018/23",
+      "parentFolderId": "7018"
+    },
+    {
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "24",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "2048/24",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "7",
+      "name": "Hospitality",
+      "navigationPath": "7",
+      "parentFolderId": ""
+    },
+    {
+      "id": "26",
+      "name": "Product Images",
+      "navigationPath": "7/26",
+      "parentFolderId": "7"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "27",
+      "name": "Product Images",
+      "navigationPath": "72102/27",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "28",
+      "name": "Presentations",
+      "navigationPath": "2048/28",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "31",
+      "name": "Pictograms & Icons",
+      "navigationPath": "2048/31",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "0",
+      "name": "Archive",
+      "navigationPath": "0",
+      "parentFolderId": ""
+    },
+    {
+      "id": "32",
+      "name": "Presentations",
+      "navigationPath": "0/32",
+      "parentFolderId": "0"
+    },
+    {
+=======
+    },
+    {
+      "id": "14",
+      "name": "Only",
+      "navigationPath": "18/14",
+      "parentFolderId": "18"
+    },
+    {
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+    {
+      "id": "15",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "1450/15",
+      "parentFolderId": "1450"
+    },
+    {
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+    {
+      "id": "16",
+      "name": "Leaflets",
+      "navigationPath": "1450/16",
+      "parentFolderId": "1450"
+    },
+    {
+      "id": "11",
+      "name": "Logos",
+      "navigationPath": "11",
+      "parentFolderId": ""
+    },
+    {
+      "id": "17",
+      "name": "of Certifications and Testings",
+      "navigationPath": "11/17",
+      "parentFolderId": "11"
+    },
+    {
+      "id": "1450",
+      "name": "OFA",
+      "navigationPath": "1450",
+      "parentFolderId": ""
+    },
+    {
+      "id": "18",
+      "name": "Consumer Benefit Images",
+      "navigationPath": "1450/18",
+      "parentFolderId": "1450"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "19",
+      "name": "Product Images",
+      "navigationPath": "211815/19",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "20",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "72102/20",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "21",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "211815/21",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "70187",
+      "name": "HASH",
+      "navigationPath": "70187",
+      "parentFolderId": ""
+    },
+    {
+      "id": "22",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "70187/22",
+      "parentFolderId": "70187"
+    },
+    {
+      "id": "7018",
+      "name": "HAS",
+      "navigationPath": "7018",
+      "parentFolderId": ""
+    },
+    {
+      "id": "23",
+      "name": "Product Images",
+      "navigationPath": "7018/23",
+      "parentFolderId": "7018"
+    },
+    {
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "24",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "2048/24",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "7",
+      "name": "Hospitality",
+      "navigationPath": "7",
+      "parentFolderId": ""
+    },
+    {
+      "id": "26",
+      "name": "Product Images",
+      "navigationPath": "7/26",
+      "parentFolderId": "7"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "27",
+      "name": "Product Images",
+      "navigationPath": "72102/27",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "28",
+      "name": "Presentations",
+      "navigationPath": "2048/28",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "31",
+      "name": "Pictograms & Icons",
+      "navigationPath": "2048/31",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "0",
+      "name": "Archive",
+      "navigationPath": "0",
+      "parentFolderId": ""
+    },
+    {
+      "id": "32",
+      "name": "Presentations",
+      "navigationPath": "0/32",
+      "parentFolderId": "0"
+    },
+    {
+>>>>>>> Stashed changes
+      "id": "2048",
+      "name": "UEI",
+      "navigationPath": "2048",
+      "parentFolderId": ""
+    },
+    {
+      "id": "33",
+      "name": "Corporate & Brand Logos",
+      "navigationPath": "2048/33",
+      "parentFolderId": "2048"
+    },
+    {
+      "id": "24",
+      "name": "CE",
+      "navigationPath": "24",
+      "parentFolderId": ""
+    },
+    {
+      "id": "34",
+      "name": "Product Images",
+      "navigationPath": "24/34",
+      "parentFolderId": "24"
+    },
+    {
+      "id": "24",
+      "name": "CE",
+      "navigationPath": "24",
+      "parentFolderId": ""
+    },
+    {
+      "id": "35",
+      "name": "Leaflets",
+      "navigationPath": "24/35",
+      "parentFolderId": "24"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "36",
+      "name": "Product Videos",
+      "navigationPath": "211815/36",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "70187",
+      "name": "HASH",
+      "navigationPath": "70187",
+      "parentFolderId": ""
+    },
+    {
+      "id": "37",
+      "name": "Product Videos",
+      "navigationPath": "70187/37",
+      "parentFolderId": "70187"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "38",
+      "name": "Sales Pitch Presentations",
+      "navigationPath": "211815/38",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "39",
+      "name": "Sales Playbook",
+      "navigationPath": "211815/39",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "7018",
+      "name": "HAS",
+      "navigationPath": "7018",
+      "parentFolderId": ""
+    },
+    {
+      "id": "40",
+      "name": "Leaflets & Brochures",
+      "navigationPath": "7018/40",
+      "parentFolderId": "7018"
+    },
+    {
+      "id": "7018",
+      "name": "HAS",
+      "navigationPath": "7018",
+      "parentFolderId": ""
+    },
+    {
+      "id": "41",
+      "name": "Product Artwork",
+      "navigationPath": "7018/41",
+      "parentFolderId": "7018"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "42",
+      "name": "Reference Product Images",
+      "navigationPath": "211815/42",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "24",
+      "name": "CE",
+      "navigationPath": "24",
+      "parentFolderId": ""
+    },
+    {
+      "id": "44",
+      "name": "Artwork",
+      "navigationPath": "24/44",
+      "parentFolderId": "24"
+    },
+    {
+      "id": "24",
+      "name": "CE",
+      "navigationPath": "24",
+      "parentFolderId": ""
+    },
+    {
+      "id": "45",
+      "name": "Sales Pitch Presentations",
+      "navigationPath": "24/45",
+      "parentFolderId": "24"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "46",
+      "name": "Sales Pitch Presentations",
+      "navigationPath": "72102/46",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "24",
+      "name": "CE",
+      "navigationPath": "24",
+      "parentFolderId": ""
+    },
+    {
+      "id": "47",
+      "name": "Brand & Lifestyle images",
+      "navigationPath": "24/47",
+      "parentFolderId": "24"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "48",
+      "name": "Leaflets & Brochures",
+      "navigationPath": "72102/48",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "211815",
+      "name": "VSP",
+      "navigationPath": "211815",
+      "parentFolderId": ""
+    },
+    {
+      "id": "49",
+      "name": "z Archive",
+      "navigationPath": "211815/49",
+      "parentFolderId": "211815"
+    },
+    {
+      "id": "72102",
+      "name": "HVAC",
+      "navigationPath": "72102",
+      "parentFolderId": ""
+    },
+    {
+      "id": "50",
+      "name": "z Archive",
+      "navigationPath": "72102/50",
+      "parentFolderId": "72102"
+    },
+    {
+      "id": "24",
+      "name": "CE",
+      "navigationPath": "24",
+      "parentFolderId": ""
+    },
+    {
+      "id": "51",
+      "name": "z Archive",
+      "navigationPath": "24/51",
+      "parentFolderId": "24"
+    },
+    {
+      "id": "7",
+      "name": "Hospitality",
+      "navigationPath": "7",
+      "parentFolderId": ""
+    },
+    {
+      "id": "52",
+      "name": "Brand & Lifestyle Images",
+      "navigationPath": "7/52",
+      "parentFolderId": "7"
+    },
+    {
+      "id": "7",
+      "name": "Hospitality",
+      "navigationPath": "7",
+      "parentFolderId": ""
+    },
+    {
+      "id": "53",
+      "name": "Product Videos",
+      "navigationPath": "7/53",
+      "parentFolderId": "7"
+    }
+  ],
+  "images": [
     {
       "id": "102",
-      "id": "1009",
       "height": 100,
       "width": 100,
       "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday4.png",
-      "imagename": "hammock",
-      "tags": "hammock, beach"
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "4",
+      "name": "urc_1910_samsung_replacement_remote_ofa_packaging_angle",
+      "tags": ""
     },
     {
-      "folderId": "102",
-      "id": "1010",
+      "id": "105",
       "height": 100,
       "width": 100,
       "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Holiday5.png",
-      "imagename": "jungle",
-      "tags": "jungle"
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "4",
+      "name": "urc_1910_samsung_remote_product_image_front",
+      "tags": ""
     },
     {
-      "folderId": "103",
-      "id": "1011",
+      "id": "108",
       "height": 100,
       "width": 100,
       "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine1.png",
-      "imagename": "maisin dieu bourgogne",
-      "tags": "burgundy wine, wine"
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "4",
+      "name": "urc_1910_samsung_remote_product_image_angle",
+      "tags": ""
     },
     {
-      "folderId": "103",
-      "id": "1012",
+      "id": "111",
       "height": 100,
       "width": 100,
       "mimeType": "image/png",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine2.png",
-      "imagename": "burgundy chateaux",
-      "tags": "chateaux, accomodation"
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "4",
+      "name": "urc_1910_samsung_replacement_remote_ofa_packaging_front",
+      "tags": ""
     },
     {
-      "folderId": "104",
-      "id": "1013",
+      "id": "114",
       "height": 100,
       "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine3.jpg",
-      "imagename": "red burgundy bottle 1",
-      "tags": "drink"
+      "mimeType": "image/png",
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "5",
+      "name": "710349_manual_urc1910_samsung_rdn1171117_latam",
+      "tags": ""
     },
     {
-      "folderId": "104",
-      "id": "1014",
+      "id": "117",
       "height": 100,
       "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine4.jpg",
-      "imagename": "red burgundy bottle 2",
-      "tags": "drink"
+      "mimeType": "image/png",
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "5",
+      "name": "710841_710842_packaging_urc_1910_rdn1061117_ofa503",
+      "tags": ""
     },
     {
-      "folderId": "103",
-      "id": "1015",
+      "id": "120",
       "height": 100,
       "width": 100,
-      "mimeType": "image/jpeg",
-      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine5.jpg",
-      "imagename": "french oak",
-      "tags": "barrels"
+      "mimeType": "image/png",
+      "previewUrl": "https://blog.idrsolutions.com/wp-content/uploads/2017/02/JPEG-1-300x236.png",
+      "folderId": "4",
+      "name": "urc_1911_lg_replacement_remote_ofa_packaging_front",
+      "tags": ""
     }
   ]
 }
