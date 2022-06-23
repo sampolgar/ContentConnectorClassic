@@ -6,6 +6,12 @@ const app = express();
 const PORT = 3000;
 app.use(express.json());
 
+//respond to default request
+app.get('/', function (req, res) {
+  res.send('hello world')
+  res.sendStatus(200)
+})
+
 //oauth request
 app.post("/oauth2/token", (req, res) => {
   //authenticate
