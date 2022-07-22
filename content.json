@@ -113,7 +113,7 @@
       "tags": "resort, australia, beach"
     },
     {
-      "id": "102",
+      "folderId": "102",
       "id": "1009",
       "height": 100,
       "width": 100,
@@ -181,6 +181,16 @@
       "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/Wine5.jpg",
       "imagename": "french oak",
       "tags": "barrels"
+    },
+    {
+      "folderId": "103",
+      "id": "1016",
+      "height": 100,
+      "width": 100,
+      "mimeType": "image/jpeg",
+      "previewUrl": "https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-Images/video-test.mp4",
+      "imagename": "test video",
+      "tags": "test,video"
     }
   ]
 }
