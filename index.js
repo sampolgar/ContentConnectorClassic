@@ -113,7 +113,7 @@ app.get("/images", (req, res) => {
 app.get("/images/:imgid", (req, res) => {
   const imageId = req.params.imgid;
   try {
-    const jmespathExpression = `images[?id=='${imageId}'].previewUrl | [0]`;
+    const jmespathExpression = `images[?id=='${imageId}'].downloadUrl | [0]`;
     const imageDownloadSearch = jmespath.search(content, jmespathExpression);
     downloadObj = {
       downloadUrl: imageDownloadSearch,
