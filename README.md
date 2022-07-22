@@ -76,6 +76,10 @@ use postman to query the API
 
 The folder structure is hierarchical, the navigationPath parameters are triggered as the user navigates down the tree.
 
+The example content.json has this structure:
+
+![](https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-GithubImages/FolderStructure-1.png)
+
 `folders?navigationPath=`
 
 Should return your root folder. The content.json shows All Images as the parent for the 3 subfolders
@@ -96,7 +100,51 @@ Should return your individual subfolder
 
 As you can see there are both folders and images in the response, that's because each step Templafy queries folders and images at the navigation path.
 
-If you have no folders, you can return an empty array and send all images back to the images empty navigation path request.
+## No folders
+
+If you have no folders, return an empty array when Templafy sends this request
+
+`folders?navigationPath=`
+
+and return all images
+
+
+## Multiple folders in the root
+
+If you have a folder structure like this
+
+![Mulitple Root Folders](https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-GithubImages/FolderStructure-2.png)
+
+and would like the home screen of the connector to look like this
+
+![](https://templafydownload.blob.core.windows.net/delivery/Integrations/ContentConnector-GithubImages/FolderStructur-2-Templafy.png)
+
+Configure Templafy to return the 3 folders when requested
+
+`folders?navigationPath=`
+
+e.g. 
+
+```
+  {
+    "id": "100",
+    "name": "Food",
+    "navigationPath": "100",
+    "parentFolderId": ""
+  },
+  {
+    "id": "200",
+    "name": "Holidays",
+    "navigationPath": "200",
+    "parentFolderId": ""
+  },
+  {
+    "id": "300",
+    "name": "Wine",
+    "navigationPath": "300",
+    "parentFolderId": ""
+  }
+```
 
 # cURL requests
 

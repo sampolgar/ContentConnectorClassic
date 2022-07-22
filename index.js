@@ -127,6 +127,11 @@ app.get("/images/:imgid", (req, res) => {
 
 //navigation Path Parser
 function navigationPathParser(navigationPath) {
+  // if it's undefined
+  if(typeof navigationPath === 'undefined'){
+    return "emptyNavPath";
+  }
+
   // strip the ending slash
   if (navigationPath.endsWith("/")) {
     navigationPath = navigationPath.slice(0, -1);
